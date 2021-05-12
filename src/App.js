@@ -1,11 +1,11 @@
 import './App.css';
 import React from "react";
-import Keeper from "./components/Keeper";
+import Game from "./components/Game";
 
 function App() {
   return (
     <div className="App">
-      <Keeper />
+      <Game />
     </div>
   );
 }
