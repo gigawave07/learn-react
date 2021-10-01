@@ -1,4 +1,4 @@
-import useGameLogic from "../logic/GameLogic";
+import useGameLogic from "../../logic/GameLogic";
 import React from "react";
 
 function Square(props) {

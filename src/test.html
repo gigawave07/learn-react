@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="num" type="text">
+<button onclick="calculate()">Calculate</button>
+<button onclick="parse()">parseFloat</button>
+<div id="result"></div>
+
+<script>
+    function parse() {
+        let num = document.getElementById('num').value
+        let result = parseFloat(num)
+
+        document.getElementById('result').innerText = 'Formatted number ' + result
+    }
+
+function calculate() {
+    let num = document.getElementById('num').value
+    let natural = num.match(/\d+(?=\.)/)
+    let decimal = num.match(/(?<=\.)\d+/)
+    let floatNum = parseFloat('0.' + decimal).toFixed(8)
+    let result = natural + '.' + floatNum.match(/(?<=\.)\d+/)
+
+    document.getElementById('result').innerText = 'Formatted number ' + result
+
+}
+</script>
+</body>
+</html>

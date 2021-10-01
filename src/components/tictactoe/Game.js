@@ -1,5 +1,5 @@
 import React from "react";
-import useGameLogic from "../logic/GameLogic";
+import useGameLogic from "../../logic/GameLogic";
 import Board from "./Board";
 
 export default function Game() {
@@ -10,16 +10,6 @@ export default function Game() {
         jumpTo,
     } = useGameLogic()
 
-    const history = game.history.map((squares, i) => {
-        return (
-            <div key={i}>
-                <button onClick={() => jumpTo(i)}>
-                    {i ? `Go to turn #${i}` : `Reset Game`}
-                </button>
-            </div>
-        )
-    })
-
     return (
         <div className="game">
             <div className="game-board">
@@ -29,7 +19,15 @@ export default function Game() {
                 />
             </div>
             <div className="game-info">
-                {history}
+                {game.history.map((squares, i) => {
+                    return (
+                        <div key={i}>
+                            <button onClick={() => jumpTo(i)}>
+                                {i ? `Go to turn #${i}` : `Reset Game`}
+                            </button>
+                        </div>
+                    )
+                })}
             </div>
         </div>
     )

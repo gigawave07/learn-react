@@ -25,10 +25,9 @@ export default function useGameLogic() {
     }
 
     const jumpTo = (i) => {
-        const history = game.history.slice()
         setGame({
-            history: history.slice(0, i + 1),
-            squares: history[i].squares,
+            history: game.history.slice(0, i + 1),
+            squares: game.history[i].squares,
             xIsNext: !(i % 2)
         })
 
